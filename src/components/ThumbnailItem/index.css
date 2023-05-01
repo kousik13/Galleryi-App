@@ -1,0 +1,17 @@
+/* Write your code here. */
+
+.image {
+  height: 40px;
+  width: 50px;
+  margin-right: 15px;
+  border-radius: 5px;
+  opacity: 10;
+}
+
+.image-container {
+  list-style-type: none;
+}
+
+.unselected-image {
+  opacity: 0.5;
+}
