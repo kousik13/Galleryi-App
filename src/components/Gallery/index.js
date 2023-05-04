@@ -79,23 +79,20 @@ const imagesList = [
 
 class Gallery extends Component {
   state = {
-    defaultImage: imagesList[0].imageUrl,
+    activeThumbnailid: imagesList[0].id,
   }
 
-  updateImage = iamgenew => {
-    this.setState({defaultImage: iamgenew})
+  updateImage = iamgeid => {
+    this.setState({activeThumbnailid: iamgeid})
   }
 
   render() {
-    const {defaultImage} = this.state
+    const {activeThumbnailid} = this.state
+    const {imageUrl, imageAltText} = imagesList[activeThumbnailid]
     return (
       <div className="app-container">
         <div>
-          <img
-            className="default-image"
-            src={defaultImage}
-            alt="imageAltText"
-          />
+          <img className="default-image" src={imageUrl} alt={imageAltText} />
           <h1 className="heading">Nature photography</h1>
           <p className="sub-heading">Nature photography by rahul</p>
           <ul className="photos-container">
@@ -104,7 +101,7 @@ class Gallery extends Component {
                 key={imageDetails.id}
                 imageDetails={imageDetails}
                 updateImage={this.updateImage}
-                isActive={defaultImage === imageDetails.imageUrl}
+                isActive={imageUrl === imageDetails.imageUrl}
               />
             ))}
           </ul>
